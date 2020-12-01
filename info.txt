@@ -1,0 +1,17 @@
+process:
+
+set separate_counter to 0 on first day.
+set an alza.csv file with initial scrape (day 0). Use this file to append new prices
+run alza_get_daily.py
+    Program scrapes all content from alza and saves it to
+        alza_main.html
+        "alza" + counter + ".html      (use to save data for future checks)
+
+after run alza_test.py
+    Program checks the separate_counter.txt and increases scrape number.
+    Program creates a new name for export file. Format: dd.mm.count
+    Scraping/parsing alza_main.html starts
+    New csv file name is created dd.mm.count.cvs and all scraped and cleared data are imported
+    Program compares all alza.csv products with dd.mm.count.csv products.
+        Adds prices to correct row and columns in alza.csv
+        All missing product prices become 0 and all new products are added to end of csv.
